@@ -1,0 +1,87 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do corpo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Estilo do cabeçalho */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #0073e6;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Estilo do main */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Estilo das seções */
+section {
+    margin-bottom: 40px;
+}
+
+section h2 {
+    font-size: 2em;
+    color: #0073e6;
+    margin-bottom: 20px;
+}
+
+/* Estilo das listas */
+ul {
+    list-style: none;
+}
+
+ul li {
+    margin-bottom: 20px;
+}
+
+ul li h3 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+ul li img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+ul li p {
+    font-size: 1em;
+    color: #666;
+}
+
+ul li a {
+    color: #0073e6;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}

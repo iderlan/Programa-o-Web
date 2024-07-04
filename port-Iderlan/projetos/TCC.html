@@ -4,85 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>TCC</h1>
-    <h2>Diminuição do espaço de busca para o problema do caxeiro viajante</h2>
-    <h3>O problema</h3>
-    <p1>o problema do caxeiro viajante é conhecido por ser muito difícil de ser resolvido para instâncias médias, no sentido de complexidade
-        de algoritmos, pois o problema por força bruta, demora um tempo super exponencial, ou O(n!) para ser resolvido, muitas heurísticas foram
-        feitas para resolver o problema de forma aproximada que fosse mais rápida, algumas com complexidade O(n^2), porém todas elas tem um problema em comum:
-        Quanto maior a instância, pior é a resposta do algoritmo. Entre elas podemos citar:
-    </p1>
-    <ul>
-        <li>
-            <p>força bruta O(n!)</p>
-            <p>Método guloso O(n^2)</p>
-            <p>inserção mais barata O(n^2)</p>
-        </li>
-    </ul>
-    <h3>Minha solução</h3>
-    <p1>
-        Primeiramente, meu algoritmo recebe como entrada uma lista de cidades com cada um deles tendo uma coordenada (x,y), e então 
-        faz uma busca em profundidade no grafo. Porém ele faz uma série de cálculos para verificar se a próxima cidade é válida, se sim, 
-        ele vai para a próxima cidade, se não ele verifica todas as cidades disponíveis, se nenhuma delas for válida ele volta na recursividade da busca em profundidade
-    </p1>
-    <p1>
-        Com isso eu consigo o melhor caminho em tempo exponencial O(2^n), bem melhor que o tempo super exponencial do algoritmo de força bruta O(n!)
-    </p1>
-    <p><img src="tcc/26.png" height="344" width="438"></p>
-    <p1>acima temos uma solução para 26 cidades, que demorou um total de 5,28613 minutos para ser calculado, tendo em vista a complexidade
-        do algoritmo e que este é um tempo médio, para 27 cidades demoraria pouco mais ou menos 10,5 minutos
-    </p1>
-    <p1>A complexidade foi calculada usando uma técnica de aproximação de curva, utilizando esse código em python:</p1>
-    <p1><br># Dados atualizados<br>
-        n_updated = np.array([12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 26])<br>
-        times_updated = np.array([17.5, 30, 45.9, 91.4, 192.8, 396.4, 918.3, 1141.7, 4488.7, 13052, 354091])<br>
-        <br>
-        # Ajuste dos modelos com dados atualizados<br>
-        params_linear_updated, _ = curve_fit(linear, n_updated, times_updated)<br>
-        params_quadratic_updated, _ = curve_fit(quadratic, n_updated, times_updated)<br>
-        params_cubic_updated, _ = curve_fit(cubic, n_updated, times_updated)<br>
-        params_exponential_updated, _ = curve_fit(exponential, n_updated, times_updated)<br>
-        params_logarithmic_updated, _ = curve_fit(logarithmic, n_updated, times_updated)<br>
-        params_factorial_updated, _ = curve_fit(factorial_func, n_updated, times_updated)<br>
-        <br>
-        # Previsões com dados atualizados<br>
-        times_linear_updated = linear(n_updated, *params_linear_updated)<br>
-        times_quadratic_updated = quadratic(n_updated, *params_quadratic_updated)<br>
-        times_cubic_updated = cubic(n_updated, *params_cubic_updated)<br>
-        times_exponential_updated = exponential(n_updated, *params_exponential_updated)<br>
-        times_logarithmic_updated = logarithmic(n_updated, *params_logarithmic_updated)<br>
-        times_factorial_updated = factorial_func(n_updated, *params_factorial_updated)<br>
-        <br>
-        # Cálculo do R^2 com dados atualizados<br>
-        r2_linear_updated = r2_score(times_updated, times_linear_updated)<br>
-        r2_quadratic_updated = r2_score(times_updated, times_quadratic_updated)<br>
-        r2_cubic_updated = r2_score(times_updated, times_cubic_updated)<br>
-        r2_exponential_updated = r2_score(times_updated, times_exponential_updated)<br>
-        r2_logarithmic_updated = r2_score(times_updated, times_logarithmic_updated)<br>
-        r2_factorial_updated = r2_score(times_updated, times_factorial_updated)<br>
-        <br>
-        # Plotando os dados e os ajustes com dados atualizados<br>
-        plt.figure(figsize=(10, 6))<br>
-        plt.scatter(n_updated, times_updated, color='black', label='Dados Originais')<br>
-        plt.plot(n_updated, times_linear_updated, label=f'Linear (R^2={r2_linear_updated:.4f})', color='blue')<br>
-        plt.plot(n_updated, times_quadratic_updated, label=f'Quadratic (R^2={r2_quadratic_updated:.4f})', color='green')<br>
-        plt.plot(n_updated, times_cubic_updated, label=f'Cubic (R^2={r2_cubic_updated:.4f})', color='red')<br>
-        plt.plot(n_updated, times_exponential_updated, label=f'Exponential (R^2={r2_exponential_updated:.4f})', color='purple')<br>
-        plt.plot(n_updated, times_logarithmic_updated, label=f'Logarithmic (R^2={r2_logarithmic_updated:.4f})', color='orange')<br>
-        plt.plot(n_updated, times_factorial_updated, label=f'Factorial (R^2={r2_factorial_updated:.4f})', color='brown')<br>
-        plt.xlabel('Entrada do Algoritmo (n)')<br>
-        plt.ylabel('Tempo Médio (ms)')<br>
-        plt.title('Ajuste de Modelos de Complexidade com Dados Atualizados')<br>
-        plt.legend()<br>
-        plt.grid(True)<br>
-        plt.show()<br>
-        <br>
-        (r2_linear_updated, r2_quadratic_updated, r2_cubic_updated, r2_exponential_updated, r2_logarithmic_updated, r2_factorial_updated)<br>
-        </p1>
-        <p1>o resultado do código foi este gráfico:</p1>
-        <p1><img src="tcc/aproximate.png" height="275" width="443"></p1>
-        <p1>com isso podemos fazer a seguinte interpretação:</p1>
+    <header>
+        <h1>TCC</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Diminuição do espaço de busca para o problema do caxeiro viajante</h2>
+            <h3>O problema</h3>
+            <p>O problema do caxeiro viajante é conhecido por ser muito difícil de ser resolvido para instâncias médias, no sentido de complexidade de algoritmos, pois o problema por força bruta, demora um tempo super exponencial, ou O(n!) para ser resolvido, muitas heurísticas foram feitas para resolver o problema de forma aproximada que fosse mais rápida, algumas com complexidade O(n^2), porém todas elas tem um problema em comum: Quanto maior a instância, pior é a resposta do algoritmo. Entre elas podemos citar:</p>
+            <ul>
+                <li>Força bruta O(n!)</li>
+                <li>Método guloso O(n^2)</li>
+                <li>Inserção mais barata O(n^2)</li>
+            </ul>
+            <h3>Minha solução</h3>
+            <p>Primeiramente, meu algoritmo recebe como entrada uma lista de cidades com cada um deles tendo uma coordenada (x,y), e então faz uma busca em profundidade no grafo. Porém ele faz uma série de cálculos para verificar se a próxima cidade é válida, se sim, ele vai para a próxima cidade, se não ele verifica todas as cidades disponíveis, se nenhuma delas for válida ele volta na recursividade da busca em profundidade.</p>
+            <p>Com isso eu consigo o melhor caminho em tempo exponencial O(2^n), bem melhor que o tempo super exponencial do algoritmo de força bruta O(n!).</p>
+            <p><img src="tcc/26.png" height="344" width="438" alt="Solução para 26 cidades"></p>
+            <p>Acima temos uma solução para 26 cidades, que demorou um total de 5,28613 minutos para ser calculado, tendo em vista a complexidade do algoritmo e que este é um tempo médio, para 27 cidades demoraria pouco mais ou menos 10,5 minutos.</p>
+            <p>A complexidade foi calculada usando uma técnica de aproximação de curva, utilizando esse código em Python:</p>
+            <button id="show-code-btn">Mostrar Código</button>
+            <pre id="python-code">
+                # Dados atualizados
+                n_updated = np.array([12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 26])
+                times_updated = np.array([17.5, 30, 45.9, 91.4, 192.8, 396.4, 918.3, 1141.7, 4488.7, 13052, 354091])
+
+                # Ajuste dos modelos com dados atualizados
+                params_linear_updated, _ = curve_fit(linear, n_updated, times_updated)
+                params_quadratic_updated, _ = curve_fit(quadratic, n_updated, times_updated)
+                params_cubic_updated, _ = curve_fit(cubic, n_updated, times_updated)
+                params_exponential_updated, _ = curve_fit(exponential, n_updated, times_updated)
+                params_logarithmic_updated, _ = curve_fit(logarithmic, n_updated, times_updated)
+                params_factorial_updated, _ = curve_fit(factorial_func, n_updated, times_updated)
+
+                # Previsões com dados atualizados
+                times_linear_updated = linear(n_updated, *params_linear_updated)
+                times_quadratic_updated = quadratic(n_updated, *params_quadratic_updated)
+                times_cubic_updated = cubic(n_updated, *params_cubic_updated)
+                times_exponential_updated = exponential(n_updated, *params_exponential_updated)
+                times_logarithmic_updated = logarithmic(n_updated, *params_logarithmic_updated)
+                times_factorial_updated = factorial_func(n_updated, *params_factorial_updated)
+
+                # Cálculo do R^2 com dados atualizados
+                r2_linear_updated = r2_score(times_updated, times_linear_updated)
+                r2_quadratic_updated = r2_score(times_updated, times_quadratic_updated)
+                r2_cubic_updated = r2_score(times_updated, times_cubic_updated)
+                r2_exponential_updated = r2_score(times_updated, times_exponential_updated)
+                r2_logarithmic_updated = r2_score(times_updated, times_logarithmic_updated)
+                r2_factorial_updated = r2_score(times_updated, times_factorial_updated)
+
+                # Plotando os dados e os ajustes com dados atualizados
+                plt.figure(figsize=(10, 6))
+                plt.scatter(n_updated, times_updated, color='black', label='Dados Originais')
+                plt.plot(n_updated, times_linear_updated, label=f'Linear (R^2={r2_linear_updated:.4f})', color='blue')
+                plt.plot(n_updated, times_quadratic_updated, label=f'Quadratic (R^2={r2_quadratic_updated:.4f})', color='green')
+                plt.plot(n_updated, times_cubic_updated, label=f'Cubic (R^2={r2_cubic_updated:.4f})', color='red')
+                plt.plot(n_updated, times_exponential_updated, label=f'Exponential (R^2={r2_exponential_updated:.4f})', color='purple')
+                plt.plot(n_updated, times_logarithmic_updated, label=f'Logarithmic (R^2={r2_logarithmic_updated:.4f})', color='orange')
+                plt.plot(n_updated, times_factorial_updated, label=f'Factorial (R^2={r2_factorial_updated:.4f})', color='brown')
+                plt.xlabel('Entrada do Algoritmo (n)')
+                plt.ylabel('Tempo Médio (ms)')
+                plt.title('Ajuste de Modelos de Complexidade com Dados Atualizados')
+                plt.legend()
+                plt.grid(True)
+                plt.show()
+
+                (r2_linear_updated, r2_quadratic_updated, r2_cubic_updated, r2_exponential_updated, r2_logarithmic_updated, r2_factorial_updated)
+            </pre>
+            <p>O resultado do código foi este gráfico:</p>
+            <p><img src="tcc/aproximate.png" height="275" width="443" alt="Gráfico de ajuste de modelos"></p>
+            <p>Com isso podemos fazer a seguinte interpretação:</p>
+            <ul>
+                <li>Modelo Linear (O(n)): R2=0.5239</li>
+                <li>Modelo Quadrático (O(n2)): R2=0.9398</li>
+                <li>Modelo Cúbico (O(n3)): R2=0.9967</li>
+                <li>Modelo Exponencial (O(2n)): R2=0.9999</li>
+                <li>Modelo Logarítmico (O(logn)): R2=0.4119</li>
+                <li>Modelo Fatorial (O(n!)): R2=0.9987</li>
+            </ul>
+            <h5>Interpretação dos Resultados</h5>
+            <ul>
+                <li>Modelo Linear: R2=0.5239. Ajuste fraco.</li>
+                <li>Modelo Quadrático: R2=0.9398. Ajuste razoável.</li>
+                <li>Modelo Cúbico: R2=0.9967. Muito bom ajuste.</li>
+                <li>Modelo Exponencial: R2=0.9999. Excelente ajuste.</li>
+                <li>Modelo Logarítmico: R2=0.4119. Ajuste fraco.</li>
+                <li>Modelo Fatorial: R2=0.9987. Excelente ajuste, mas ligeiramente inferior ao exponencial.</li>
+            </ul>
+            <p>Percebemos que o ajuste exponencial é o melhor, então ele representa muito bem a complexidade do meu algoritmo. Ainda acho que dá pra melhorar o algoritmo, mas não sei se é possível chegar no nível de Complexidade polinomial, provavelmente não, mas não é por isso que irei desistir, esse problema sempre me fascinou desde que descobri a existência dele, e testarei todas as possibilidades com esse problema.</p>
+            <a href="../index.html">voltar</a>
+        </section>
+    </main>
 </body>
 </html>
