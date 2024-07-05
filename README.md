@@ -33,5 +33,10 @@ Para mais informações, entre em contato:
     Nome: Iderlan Matheus Nascimento Cardoso
     Email: iderlan2001@gmail.com
 
+mantenedor do projeto:
+
+    Nome: Rennan Jose Maia da Silva
+    Email: rennanmaia@gmail.com
+
 Este projeto foi desenvolvido como parte de um trabalho de aula de programação web e está disponível para fins educacionais e de demonstração. 
 Sinta-se à vontade para explorar, utilizar e modificar conforme necessário. Agradeço qualquer feedback ou contribuições.
