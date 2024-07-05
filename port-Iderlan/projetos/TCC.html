@@ -21,12 +21,29 @@
                 <li>Método guloso O(n^2)</li>
                 <li>Inserção mais barata O(n^2)</li>
             </ul>
+            <h3>O ultimo algoritmo feito</h3>
+            <p>
+                O ultimo algoritmo de complexidade exponencial com solução exata é uma algoritmo que utiliza da programação dinâmica para funcionar. É o algoritmo de 
+                <a href="https://en.wikipedia.org/wiki/Held%E2%80%93Karp_algorithm">Held–Karp</a> feito em 1962. Ou seja, se tudo estiver certo, meu algoritmo é o 
+                segundo da história a ser feito depois de 62 anos, que resolve o problema em tempo exponencial.
+            </p>
             <h3>Minha solução</h3>
-            <p>Primeiramente, meu algoritmo recebe como entrada uma lista de cidades com cada um deles tendo uma coordenada (x,y), e então faz uma busca em profundidade no grafo. Porém ele faz uma série de cálculos para verificar se a próxima cidade é válida, se sim, ele vai para a próxima cidade, se não ele verifica todas as cidades disponíveis, se nenhuma delas for válida ele volta na recursividade da busca em profundidade.</p>
-            <p>Com isso eu consigo o melhor caminho em tempo exponencial O(2^n), bem melhor que o tempo super exponencial do algoritmo de força bruta O(n!).</p>
+            <p>
+                Primeiramente, meu algoritmo recebe como entrada uma lista de cidades com cada um deles tendo uma coordenada (x,y), e então faz uma busca em profundidade no grafo. 
+                Porém ele faz uma série de cálculos para verificar se a próxima cidade é válida, se sim, ele vai para a próxima cidade, se não ele verifica todas as cidades disponíveis, 
+                se nenhuma delas for válida ele volta na recursividade da busca em profundidade.
+            </p>
+            <p>
+                Com isso eu consigo o melhor caminho em tempo exponencial O(2^n), bem melhor que o tempo super exponencial do algoritmo de força bruta O(n!).
+            </p>
             <p><img src="tcc/26.png" height="344" width="438" alt="Solução para 26 cidades"></p>
-            <p>Acima temos uma solução para 26 cidades, que demorou um total de 5,28613 minutos para ser calculado, tendo em vista a complexidade do algoritmo e que este é um tempo médio, para 27 cidades demoraria pouco mais ou menos 10,5 minutos.</p>
-            <p>A complexidade foi calculada usando uma técnica de aproximação de curva, utilizando esse código em Python:</p>
+            <p>
+                Acima temos uma solução para 26 cidades, que demorou um total de 5,28613 minutos para ser calculado, tendo em vista a complexidade do 
+                algoritmo e que este é um tempo médio, para 27 cidades demoraria pouco mais ou menos 10,5 minutos.
+            </p>
+            <p>
+                A complexidade foi calculada usando uma técnica de aproximação de curva, utilizando esse código em Python:
+            </p>
             <button id="show-code-btn">Mostrar Código</button>
             <pre id="python-code">
                 # Dados atualizados
@@ -95,7 +112,9 @@
                 <li>Modelo Logarítmico: R2=0.4119. Ajuste fraco.</li>
                 <li>Modelo Fatorial: R2=0.9987. Excelente ajuste, mas ligeiramente inferior ao exponencial.</li>
             </ul>
-            <p>Percebemos que o ajuste exponencial é o melhor, então ele representa muito bem a complexidade do meu algoritmo. Ainda acho que dá pra melhorar o algoritmo, mas não sei se é possível chegar no nível de Complexidade polinomial, provavelmente não, mas não é por isso que irei desistir, esse problema sempre me fascinou desde que descobri a existência dele, e testarei todas as possibilidades com esse problema.</p>
+            <p>Percebemos que o ajuste exponencial é o melhor, então ele representa muito bem a complexidade do meu algoritmo. Ainda acho que dá pra melhorar o algoritmo, 
+            mas não sei se é possível chegar no nível de Complexidade polinomial, provavelmente não, mas não é por isso que irei desistir, esse problema sempre me fascinou 
+            desde que descobri a existência dele, e testarei todas as possibilidades com esse problema.</p>
             <a href="../index.html">voltar</a>
         </section>
     </main>
